@@ -1,0 +1,3 @@
+stack und heap
+clear vs removeall
+set/hashset
