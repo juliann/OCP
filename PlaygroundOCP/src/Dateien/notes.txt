@@ -1,3 +1,5 @@
 stack und heap
 clear vs removeall
 set/hashset
+LinkedList vs ArrayList
+bitwise  verschiebung
