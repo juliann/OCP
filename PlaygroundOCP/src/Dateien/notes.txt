@@ -3,3 +3,4 @@ clear vs removeall
 set/hashset
 LinkedList vs ArrayList
 bitwise  verschiebung
+set theory
