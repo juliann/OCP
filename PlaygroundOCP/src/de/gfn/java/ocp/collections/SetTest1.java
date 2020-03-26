@@ -78,7 +78,6 @@ public class SetTest1 {
         
         System.out.println(set2);
         
-        
         Set<Student> set3 = new TreeSet<>(new StudentComparator().reversed());
         set3.add(hans);
         set3.add(max);
@@ -149,74 +148,5 @@ public class SetTest1 {
         System.out.println(cal.floor(LocalDateTime.of(2020,3,10,16,22))); // Liefert gesuchtes objekt wenn da, sonst vorheriges
         System.out.println(cal.higher(LocalDateTime.of(2020,3,23,10,10))); // Liefert nächstes objekt
         System.out.println(cal.lower(LocalDateTime.of(2020,3,23,10,10))); // Liefert vorheriges objekt
-    }
-}
-
-class StudentComparator implements Comparator<Student> {
-
-    @Override
-    public int compare(Student o1, Student o2) {
-        return o1.getLastName().hashCode() - o2.getLastName().hashCode();
-    }
-}
-
-class Student implements Comparable<Student>{
-    
-    private String firstName;
-    private String lastName;
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.firstName);
-        hash = 97 * hash + Objects.hashCode(this.lastName);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Student other = (Student) obj;
-        if (!Objects.equals(this.firstName, other.firstName)) {
-            return false;
-        }
-        if (!Objects.equals(this.lastName, other.lastName)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public int compareTo(Student o) {
-        return firstName.length() - o.firstName.length();
-    }
-
-    @Override
-    public String toString() {
-        return firstName;
     }
 }

@@ -89,25 +89,3 @@ public class ListTest1 {
         
     }
 }
-
-
-abstract class AbstractThing {
-    
-    public AbstractThing() {
-        System.out.println("AbstractThing");
-    }
-    
-    public AbstractThing(int zahl) {
-        System.out.println("AbstractThing: " + zahl);
-    }
-    
-}
-
-// ConcretThing IS-A AbstractThing
-class ConcretThing extends AbstractThing {
-
-    public ConcretThing() {
-        super(100);
-        System.out.println("ConcretThing");
-    }
-}

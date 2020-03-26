@@ -56,17 +56,3 @@ public class CollectionsTest1 {
         
     }
 }
-
-class Thing {
-    
-    private int value;
-
-    public Thing(int value) {
-        this.value = value;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return true;
-    }
-}
