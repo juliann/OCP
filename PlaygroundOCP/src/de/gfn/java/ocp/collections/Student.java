@@ -5,21 +5,49 @@
  */
 package de.gfn.java.ocp.collections;
 
-import java.util.Objects;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Arrays;
+import org.apache.commons.lang3.builder.CompareToBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
  * @author tlubowiecki
  */
-public class Student implements Comparable<Student>{
+public class Student implements Comparable<Student>, Serializable {
+    
+    private static final long serialVersionUID = 2;
     
     private String firstName;
     private String lastName;
+    // transient = wird nicht serialisiert
+    private LocalDate birthDate;
 
+    public Student(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Student() {
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+    
+    
     public String getFirstName() {
         return firstName;
     }
-
+    
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -34,14 +62,19 @@ public class Student implements Comparable<Student>{
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.firstName);
-        hash = 97 * hash + Objects.hashCode(this.lastName);
-        return hash;
+//        int hash = 5;
+//        hash = 97 * hash + Objects.hashCode(this.firstName);
+//        hash = 97 * hash + Objects.hashCode(this.lastName);
+//        return hash;
+
+        return HashCodeBuilder.reflectionHashCode(this);
     }
 
     @Override
     public boolean equals(Object obj) {
+        return EqualsBuilder.reflectionEquals(this, obj);
+        
+        /*
         if (this == obj) {
             return true;
         }
@@ -59,15 +92,17 @@ public class Student implements Comparable<Student>{
             return false;
         }
         return true;
+        */
     }
 
     @Override
     public int compareTo(Student o) {
-        return firstName.length() - o.firstName.length();
+        // return firstName.length() - o.firstName.length();
+        return CompareToBuilder.reflectionCompare(this, o, Arrays.asList("firstname"));
     }
 
     @Override
     public String toString() {
-        return firstName;
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
     }
 }

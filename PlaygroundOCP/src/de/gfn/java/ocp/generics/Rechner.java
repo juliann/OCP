@@ -5,6 +5,9 @@
  */
 package de.gfn.java.ocp.generics;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author tlubowiecki
