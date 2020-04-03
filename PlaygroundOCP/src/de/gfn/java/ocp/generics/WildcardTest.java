@@ -5,7 +5,6 @@
  */
 package de.gfn.java.ocp.generics;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -49,7 +48,7 @@ public class WildcardTest {
         numList.forEach(i -> System.out.println(i));
         
         // Lower-Bound: Beschränkt auf Number und Elternt-Typen von Number
-        List<? super Number> numList2 = new ArrayList<Number>();
+        List<? super Number> numList2 = new ArrayList<>();
         //numList2 = new ArrayList<Object>();
         // numList2 = new ArrayList<Integer>();
         numList2.add(1); // int > Integer > Number

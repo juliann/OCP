@@ -37,7 +37,7 @@ public class StreamsTest1 {
 //        } 
 //        catch (IOException e) {
 //        }
-//        
+        
 //        long end = System.currentTimeMillis();
 //        System.out.println(end - start + " ms");
         
@@ -63,8 +63,8 @@ public class StreamsTest1 {
         
         // Optimal für Zeichen/Strings
         try {
-            BufferedReader r = new BufferedReader(new FileReader("data/test.txt"));
-            BufferedWriter w = new BufferedWriter(new FileWriter("data/test_copy.txt"));
+            BufferedReader r = new BufferedReader(new FileReader("Generics.pdf"));
+            BufferedWriter w = new BufferedWriter(new FileWriter("Generics_copy.pdf"));
             
             String line = null;
             while((line = r.readLine()) != null) {

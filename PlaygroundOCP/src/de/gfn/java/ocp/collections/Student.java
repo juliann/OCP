@@ -5,6 +5,8 @@
  */
 package de.gfn.java.ocp.collections;
 
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -58,6 +60,18 @@ public class Student implements Comparable<Student>, Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    
+    // Optional, kann das Schreiben anpassen
+    private void writeObject(ObjectOutputStream oos) throws Exception {
+       oos.defaultWriteObject();
+        System.out.println("WRITE");
+    }
+    
+    // Optional, kann das Lesen anpassen
+    private void readObject(ObjectInputStream ois) throws Exception {
+        ois.defaultReadObject();
+        System.out.println("READ");
     }
 
     @Override
